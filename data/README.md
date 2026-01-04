@@ -12,9 +12,10 @@ After preparation, your local project should look like:
 
 Brain-Tumor-Segmentation-U-Net/
 ├── data/
-│   ├── images/   # generated 2D MRI slices (PNG)
-│   └── masks/    # generated binary masks (PNG)
-...
+│   ├── images/   # Generated 2D MRI slices (.png)
+│   └── masks/    # Generated binary masks (.png)
+├── raw_data/     # Original downloaded Kaggle files
+└── ...
 
 ## How to Prepare the Dataset
 1) Download the Kaggle LGG dataset and place the raw files under a folder such as:
@@ -23,11 +24,12 @@ Brain-Tumor-Segmentation-U-Net/
 2) Run the dataset preparation script:
 ```bash
 python prepare_dataset.py
+```
 
 ###This script will generate paired files under:
-	•	data/images/*.png
-	•	data/masks/*.png
+- data/images/*.png
+- data/masks/*.png
 
 ###Notes
-	•	Many slices contain empty masks (no tumor). Our training script filters empty-mask samples only in the training set to reduce class imbalance.
-	•	Validation and test sets keep all samples for unbiased evaluation.
+- Many slices contain empty masks (no tumor). Our training script filters empty-mask samples only in the training set to reduce class imbalance.
+- Validation and test sets keep all samples for unbiased evaluation.

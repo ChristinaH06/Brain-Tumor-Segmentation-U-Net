@@ -1,26 +1,33 @@
-# Brain Tumor Segmentation using U-Net
+# Dataset Note (LGG MRI Segmentation)
 
-This repository contains the final project for the Computer Vision course.
+This folder is reserved for dataset-related files.  
+**To keep the repository lightweight, the raw dataset and the generated image/mask files are NOT included in this repo.**
 
-## Project Description
+## Dataset Source
+We use the **LGG (Lower Grade Glioma) MRI Segmentation Dataset** from **Kaggle**.  
+(TODO: paste the Kaggle dataset page link here)
 
-The goal of this project is to perform automatic brain tumor segmentation on MRI images using a U-Net based deep learning model. Manual segmentation by radiologists is time-consuming and subjective. This project aims to provide an automated solution that generates pixel-level tumor masks efficiently.
-
-## Dataset
-
-We use the LGG MRI Segmentation Dataset from Kaggle, which contains brain MRI images and corresponding binary tumor masks.
-
-## Project Structure
+## Expected Local Structure
+After preparation, your local project should look like:
 
 Brain-Tumor-Segmentation-U-Net/
-├── model/ # U-Net architecture
-├── utils/ # Dataset loader and evaluation metrics
-├── data/ # Dataset (not included in this repo)
-├── results/ # Visualization and evaluation outputs
-├── train.py # Model training script
-├── test.py # Model testing and inference script
+├── data/
+│   ├── images/   # generated 2D MRI slices (PNG)
+│   └── masks/    # generated binary masks (PNG)
+...
 
+## How to Prepare the Dataset
+1) Download the Kaggle LGG dataset and place the raw files under a folder such as:
+- `raw_data/`  (recommended)
 
-## Status
+2) Run the dataset preparation script:
+```bash
+python prepare_dataset.py
 
-This project is under active development.
+###This script will generate paired files under:
+	•	data/images/*.png
+	•	data/masks/*.png
+
+###Notes
+	•	Many slices contain empty masks (no tumor). Our training script filters empty-mask samples only in the training set to reduce class imbalance.
+	•	Validation and test sets keep all samples for unbiased evaluation.

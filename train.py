@@ -83,7 +83,7 @@ def main():
     # AdamW通常比Adam更稳一点
     optimizer = torch.optim.AdamW(model.parameters(), lr=3e-4, weight_decay=1e-4)
 
-    # 验证集不提升就自动降lr（非常适合CPU慢慢训）
+    # 验证集不提升就自动降lr
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
         optimizer, mode="max", factor=0.5, patience=2
     )
@@ -91,7 +91,7 @@ def main():
     os.makedirs("pretrained", exist_ok=True)
 
     # ---- training control ----
-    epochs = 50                 # CPU慢慢训就开大一点，EarlyStopping会自动停
+    epochs = 50                 # CPU慢慢训练的时候就开大一点，因为EarlyStopping会自动停
     early_stop_patience = 6     # 连续6个epoch tumor-dice不提升就停止
     best_score = -1.0
     no_improve = 0
@@ -116,7 +116,7 @@ def main():
         train_loss = float(np.mean(losses)) if len(losses) else 0.0
 
         val_dice_all, val_dice_tumor = evaluate(model, val_loader, device)
-        score_to_save = val_dice_tumor  # 用 tumor-only 作为保存标准更合理
+        score_to_save = val_dice_tumor  # 用 tumor-only 作为保存标准
         lr_now = optimizer.param_groups[0]["lr"]
 
         print(

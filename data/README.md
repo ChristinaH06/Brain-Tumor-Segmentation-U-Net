@@ -10,12 +10,14 @@ We use the **LGG (Lower Grade Glioma) MRI Segmentation Dataset** from **Kaggle**
 ## Expected Local Structure
 After preparation, your local project should look like:
 
+```text
 Brain-Tumor-Segmentation-U-Net/
 ├── data/
 │   ├── images/   # Generated 2D MRI slices (.png)
 │   └── masks/    # Generated binary masks (.png)
 ├── raw_data/     # Original downloaded Kaggle files
 └── ...
+```
 
 ## How to Prepare the Dataset
 1) Download the Kaggle LGG dataset and place the raw files under a folder such as:

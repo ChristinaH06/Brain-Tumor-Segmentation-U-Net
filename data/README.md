@@ -5,7 +5,7 @@ This folder is reserved for dataset-related files.
 
 ## Dataset Source
 We use the **LGG (Lower Grade Glioma) MRI Segmentation Dataset** from **Kaggle**.  
-(TODO: paste the Kaggle dataset page link here)
+<https://www.kaggle.com/datasets/mateuszbuda/lgg-mri-segmentation>
 
 ## Expected Local Structure
 After preparation, your local project should look like:

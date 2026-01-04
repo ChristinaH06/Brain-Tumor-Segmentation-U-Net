@@ -1,0 +1,2 @@
+Test Dice (all): 0.7052
+Test Dice (tumor-only): 0.8656

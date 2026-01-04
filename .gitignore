@@ -1,0 +1,26 @@
+# python
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# IDE
+.idea/
+.vscode/
+.DS_Store
+
+# dataset (do NOT upload)
+raw_data/
+data/images/
+data/masks/
+
+# large outputs / checkpoints
+
+results/*.png
+results/*.jpg
+results/*.jpeg
+results/*.pdf
+
+# keep small metric files
+!results/*.txt
+!results/README.md
